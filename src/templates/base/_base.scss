@@ -1,0 +1,98 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: var(--color-grey-light);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--color-grey-dark);
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; // 1 rem = 10px
+
+  @include respond(tab-port) {
+    font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(tab-land) {
+    font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px, 12/16 = 75%
+  }
+}
+
+:root {
+  --color-primary: #861831;
+  --color-primary-dark: #5e1526;
+  --color-primary-light: #cc5c94;
+  --color-secondary: #e8879d;
+  --color-secondary-light: #f8d7fe;
+  --color-secondary-dark: #e96886;
+  --color-tertiary: #fbdb04;
+  --color-tertiary-light: #fff39f;
+  --color-tertiary-light-2: #fffdeb;
+  --color-grey-light: #f8f8f8;
+  --color-grey: #d0d0d0;
+  --color-grey-2: #a5a5a5;
+  --color-grey-dark: rgb(36, 36, 36);
+  --color-white: #ffffff;
+  --color-black: rgb(0, 0, 0);
+  --color-red: #d80000;
+  --color-green: #3fad0c;
+
+  // FOR COLORS WITH OPACITY
+  --color-black-transparent: 0, 0, 0;
+
+  // FONTS
+  --default-font-size: 1.6rem; // 16px
+}
+// STYLE SCROLLBAR WHEREVER IT APPEARS
+
+::-webkit-scrollbar {
+  width: 1rem;
+
+  @include respond(tab-port) {
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}
+
+/* Track */
+::-webkit-scrollbar {
+  width: 0.6rem;
+
+  @include respond(tab-port) {
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}
+
+::-webkit-scrollbar-track {
+  //box-shadow: inset 0 0 4px rgba(var(--color-primary-dark), 0.6);
+  box-shadow: inset 0 0 4px var(--color-grey-light);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  //background: var(--color-secondary);
+  background: linear-gradient(to bottom, var(--color-secondary), var(--color-white));
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
+}

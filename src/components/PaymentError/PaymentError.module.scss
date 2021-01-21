@@ -1,0 +1,17 @@
+@import '../../templates/abstracts/mixins';
+
+.paymentError {
+  background-color: var(--color-grey-light);
+  padding: 2rem;
+  @include center-horizontal-vertical;
+
+  &__titleBox {
+    background-color: var(--color-tertiary-light);
+    padding: 1rem 2rem;
+  }
+
+  &__text {
+    font-size: var(--default-font-size);
+    margin-top: 2rem;
+  }
+}

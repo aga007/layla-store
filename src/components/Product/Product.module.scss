@@ -1,0 +1,85 @@
+@import '../../templates/abstracts/mixins.scss';
+
+.product {
+  padding: 2rem;
+  background-color: var(--color-white);
+  border-radius: 5px;
+  height: 100%;
+
+  &__shape {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__shape:hover &__messageBox {
+    transform: rotate(-10deg) scale(1.1);
+    @include shadowBottom;
+  }
+  &__img {
+    width: 100%;
+  }
+  &__gradient {
+    background: linear-gradient(to top, rgba(#fff, 1), rgba(#fff, 0));
+    height: 23rem;
+    margin-top: -22rem;
+    position: relative;
+    z-index: 10;
+  }
+  &__description {
+    padding: 1rem;
+    font-size: var(--default-font-size);
+  }
+  &__price {
+    font-size: 2.4rem;
+    color: var(--color-primary);
+    text-align: right;
+    font-weight: 400;
+    padding: 0 1rem;
+  }
+
+  &__buttons {
+    padding: 2rem 1rem 2rem 1rem;
+  }
+
+  &__messageBox {
+    position: absolute;
+    top: 1.2rem;
+    left: 1rem;
+    background-color: var(--color-tertiary-light);
+    color: var(--color-primary);
+    padding: 1rem;
+    border: 2px dotted var(--color-primary);
+    border-radius: 100rem;
+    font-size: 2.1rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    transform: rotate(0) scale(1);
+    transition: all 0.5s ease;
+    backface-visibility: hidden;
+
+    @include respond(phone) {
+      font-size: 1.8rem;
+      width: 5rem;
+      height: 5rem;
+    }
+
+    &__big {
+      font-size: 2.1rem;
+      width: 6.5rem;
+      height: 6.5rem;
+      @include respond(phone) {
+        font-size: 1.8rem;
+        width: 5.5rem;
+        height: 5.5rem;
+      }
+    }
+  }
+
+  &__message {
+    @include center-horizontal-vertical;
+    text-transform: uppercase;
+    line-height: 1.5rem;
+    text-align: center;
+  }
+}

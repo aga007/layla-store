@@ -1,0 +1,19 @@
+@import '../../templates/base/_animations.scss';
+
+.item__enter {
+  opacity: 0.01;
+}
+
+.item__enter.item__enterActive {
+  opacity: 1;
+  animation: showNotification 1s ease-in-out;
+}
+
+.item__exit {
+  opacity: 1;
+}
+
+.item__exit.item__exitActive {
+  opacity: 0.01;
+  animation: hideNotification 1s ease-in-out;
+}

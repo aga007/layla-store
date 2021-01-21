@@ -1,0 +1,113 @@
+@import '../../templates/abstracts/mixins';
+
+.paymentSuccess {
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include respond(tab-port) {
+      flex-direction: column;
+      overflow-y: auto;
+      height: auto;
+    }
+  }
+  &__col1 {
+    width: 25%;
+    height: 80vh;
+    margin-right: 2rem;
+    padding: 4rem;
+    @include respond(tab-port) {
+      order: 1;
+      height: 60vh;
+    }
+  }
+
+  &__col2 {
+    background-color: var(--color-grey-light);
+    padding: 2rem 0rem 2rem 2rem;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 70vh;
+    @include respond(tab-port) {
+      overflow-y: visible;
+      max-height: none;
+      margin-top: 5rem;
+      align-self: flex-end;
+    }
+
+    @include respond(phone) {
+      margin-left: 2rem;
+    }
+  }
+
+  &__orderNr {
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
+    font-size: 1.8rem;
+    color: var(--color-grey-dark);
+    @include respond(tab-port) {
+      left: 3rem;
+    }
+  }
+
+  &__titleBox {
+    background-color: var(--color-tertiary-light);
+    padding: 1rem 2rem;
+    margin-left: 4rem;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 3rem;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+
+    @include respond(phone) {
+      padding: 2rem 1rem;
+    }
+  }
+
+  &__textbox {
+    font-size: var(--default-font-size);
+    margin-right: 1rem;
+
+    @include respond(tab-port) {
+      &:not(:last-child) {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+
+  &__span {
+    font-weight: 400;
+    display: inline-block;
+  }
+
+  &__icon {
+    display: inline-block;
+    fill: var(--color-green);
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  &__img {
+    height: 100%;
+  }
+
+  &__list {
+    list-style-type: square;
+    margin-bottom: 1.5rem;
+    list-style-position: inside;
+  }
+
+  &__paragraph {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}

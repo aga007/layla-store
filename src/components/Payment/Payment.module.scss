@@ -1,0 +1,151 @@
+@import '../../templates/abstracts/mixins';
+
+.payment {
+  display: flex;
+  height: 100%;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+
+  &__col1 {
+    width: 10%;
+    height: 100%;
+    background-color: var(--color-tertiary-light);
+    align-self: stretch;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    text-align: center;
+
+    @include respond(tab-port) {
+      width: 100%;
+      height: 5rem;
+      border-bottom-left-radius: 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__col2 {
+    padding: 2rem;
+    flex: 1;
+    position: relative;
+
+    & > div {
+      @include center-horizontal-vertical;
+      max-height: 80vh;
+      //  width: fit-content;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+
+  &__icons {
+    padding: 2.2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    fill: var(--color-primary-dark);
+  }
+
+  &__h4 {
+    font-size: 1.8rem;
+    color: var(--color-primary-dark);
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+
+    @include respond(tab-port) {
+      margin-left: auto;
+    }
+  }
+
+  &__h6 {
+    font-size: 2rem;
+    background-color: var(--color-tertiary);
+    color: var(--color-tertiary-light-2);
+    transform: skewX(-20deg);
+    display: inline-block;
+    padding: 0.2rem 1rem;
+
+    @include respond(tab-port) {
+      margin: 0 2rem;
+    }
+  }
+
+  &__span {
+    transform: skewX(20deg);
+    display: block;
+  }
+
+  &__tip {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--color-grey-dark);
+  }
+
+  &__paragraph {
+    font-size: var(--default-font-size);
+    color: var(--color-grey-dark);
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__orderNr {
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    font-size: 1.8rem;
+    color: var(--color-grey-dark);
+  }
+
+  &__btnBox {
+    padding: 2rem;
+  }
+
+  &__warning {
+    display: inline-block;
+    padding: 1.5rem 2.2rem;
+    font-size: var(--default-font-size);
+    background-color: var(--color-red);
+    color: var(--color-white);
+    position: absolute;
+    bottom: 2rem;
+    left: 20%;
+    width: 70%;
+    text-align: center;
+    @include shadowBottom;
+
+    @include respond(phone) {
+      left: 15%;
+    }
+
+    @include respond(phone) {
+      left: auto;
+      width: 90%;
+    }
+  }
+
+  &__hide {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: var(--color-white);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transform: scale(1);
+    transition: all 0.5s ease;
+    z-index: 4000;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+      fill: var(--color-secondary-dark);
+    }
+  }
+}

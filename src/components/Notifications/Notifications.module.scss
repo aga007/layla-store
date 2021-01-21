@@ -1,0 +1,31 @@
+@import '../../templates/abstracts/mixins';
+@import '../../templates/base/animations';
+
+.notifications {
+  &__ul {
+    position: fixed;
+    transform: translate(-50%);
+    top: 20%;
+    left: 50%;
+    list-style: none;
+    z-index: 3000;
+  }
+
+  &__itemEnter {
+    opacity: 0.01;
+  }
+
+  &__itemEnter &__itemEnterActive {
+    opacity: 1;
+    animation: showNotification 1s ease-in-out;
+  }
+
+  &__itemExit {
+    opacity: 1;
+  }
+
+  &__itemExit &__itemExitActive {
+    opacity: 0.01;
+    animation: hideNotification 1s ease-in-out;
+  }
+}

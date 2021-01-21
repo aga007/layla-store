@@ -1,0 +1,12 @@
+@import './abstracts/variables';
+@import './abstracts/mixins';
+@import './base/base';
+@import './base/animations';
+@import './base/typography';
+@import './layout/grid';
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Poppins:wght@500;700&display=swap');
+
+.page {
+  min-height: 60vh;
+}

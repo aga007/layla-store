@@ -1,0 +1,55 @@
+@import '../../templates/abstracts/mixins';
+@import '../../templates/base/animations';
+
+.orderPopup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--color-black-transparent), 0.7);
+  animation: fadeIn 0.7s ease-out;
+  @supports (-webkit-backdrop-filter: blur(7px)) or (backdrop-filter: blur(7px)) {
+    background-color: rgba(var(--color-black-transparent), 0.6);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+  }
+
+  z-index: 2000;
+
+  &__container {
+    width: 85vw;
+    height: 90vh;
+    background-color: var(--color-white);
+    border-radius: 3px;
+    position: relative;
+    @include shadowBottom;
+    animation: expand 0.7s;
+    overflow-y: auto;
+  }
+
+  &__close {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-2);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transform: scale(1);
+    transition: all 0.5s ease;
+    z-index: 4000;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+      fill: var(--color-red);
+    }
+
+    @include respond(phone) {
+      position: fixed;
+      fill: var(--color-secondary-light);
+    }
+  }
+}

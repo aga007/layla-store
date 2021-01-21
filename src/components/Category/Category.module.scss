@@ -1,0 +1,63 @@
+@import '../../templates/abstracts/mixins.scss';
+
+.category {
+  width: 40rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--color-white);
+  border-radius: 5px;
+  position: relative;
+  @include shadowBottom;
+
+  @include respond(phone) {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    background-color: var(--color-tertiary);
+    padding: 0.5rem 0.7rem;
+    width: 25rem;
+    height: 6rem;
+    color: var(--color-primary);
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    @include shadowBottom;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+    }
+
+    @include respond(phone) {
+      font-size: 2.5rem;
+      width: 22rem;
+      padding: 0.3rem 0.7rem;
+      height: 5rem;
+      @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+      }
+    }
+  }
+
+  &__shape {
+    width: 40rem;
+    @include respond(phone) {
+      width: 95%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+}

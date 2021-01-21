@@ -1,0 +1,41 @@
+@import '../../templates/abstracts/mixins';
+
+.orderItem {
+  font-size: var(--default-font-size);
+  padding: 1.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  @include respond(phone) {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  &__figure {
+    border-radius: 100%;
+    overflow: hidden;
+    height: 5rem;
+    width: 5rem;
+    margin-right: 1.5rem;
+    margin-left: 2rem;
+
+    @include respond(phone) {
+      margin: 0 auto 1.5rem auto;
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-primary);
+  }
+
+  &__detail {
+    margin-right: 0.5rem;
+  }
+}

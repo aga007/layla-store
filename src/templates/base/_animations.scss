@@ -1,0 +1,99 @@
+@keyframes expandY {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  100% {
+    height: auto;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@keyframes collapseY {
+  0% {
+    height: auto;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scaleY(0);
+    transform-origin: center;
+  }
+  100% {
+    height: auto;
+    transform: scaleY(1);
+    transform-origin: center;
+  }
+}
+
+@keyframes cover {
+  0% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translate(30px, -100px);
+  }
+  100% {
+    transform: translate(0, 0);
+    display: flex;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showNotification {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideNotification {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}

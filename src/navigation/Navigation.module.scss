@@ -1,0 +1,224 @@
+@import '../templates/abstracts/mixins.scss';
+@import '../templates/base/animations.scss';
+
+.nav {
+  height: fit-content;
+
+  &__desk {
+    z-index: 20;
+    position: relative;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+
+  &__mob {
+    z-index: 20;
+    position: fixed;
+    right: 0;
+    top: 1.7rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: fixed;
+    top: 2rem;
+    right: 10rem;
+    animation: fallDown 0.5s ease-out;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+
+    &__mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__mobContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: fixed;
+    top: 8rem;
+    right: 10rem;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: all 0.6s;
+
+    &__collapsed {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+  }
+
+  &__ul {
+    margin-top: 1rem;
+    position: absolute;
+    left: 0;
+    background-color: var(--color-secondary);
+    transform: scaleY(1) skewX(20deg);
+    transform-origin: top;
+    transition: all 0.6s;
+    &__collapsed {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+  }
+
+  &__ulMob {
+    margin-top: 1rem;
+    background-color: var(--color-secondary);
+    height: 100%;
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+    transition: transform 0.7s ease-out, height 0.4s, opacity 0.7s;
+    // animation: expandY 0.6s ease-out;
+    &__collapsed {
+      transform: scaleY(0);
+      transform-origin: top;
+      background-color: var(--color-secondary);
+      height: 0;
+      opacity: 0;
+      // transition: transform 0.3s ease-in, height 0.2s, opacity 0.3s;
+      // animation: collapseY 0.6s ease-in;
+    }
+  }
+
+  &__li {
+    list-style: none;
+    &:not(:last-child) {
+      border-bottom: 1px dashed var(--color-secondary-light);
+    }
+  }
+
+  &__item {
+    list-style: none;
+    background-color: var(--color-primary);
+    @include shadowBottom;
+    transform: skewX(-20deg) scale(1);
+    transition: all 0.5s;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: white;
+    }
+
+    &__mobile {
+      transform: none;
+      &:not(:last-child) {
+        margin-right: 0;
+        border-bottom: 1px dashed var(--color-secondary-light);
+      }
+    }
+  }
+
+  &__link {
+    transform: skewX(20deg) scale(1);
+  }
+
+  &__navlink {
+    &,
+    &:link,
+    &:visited {
+      color: var(--color-secondary-light);
+      text-transform: uppercase;
+      text-decoration: none;
+      display: block;
+      padding: 1rem 2rem;
+      font-size: var(--default-font-size);
+      min-width: 14rem;
+      text-align: center;
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--color-white);
+    }
+  }
+
+  &__iconCart {
+    position: fixed;
+    right: 4rem;
+    top: 2rem;
+    z-index: 40;
+  }
+
+  &__shoppingCartIcon {
+    background-image: url('../assets/icons/shopping-bag.svg');
+    background-size: 65%;
+    background-color: var(--color-secondary);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 4.5rem;
+    height: 4.5rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 1.5rem 1.5rem 0.8rem 1.5rem;
+    //  display: inline-block;
+  }
+
+  &__mobNav {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 3px;
+    background-color: var(--color-white);
+    text-align: center;
+    @include shadowBottom;
+    cursor: pointer;
+    position: absolute;
+    right: 10rem;
+  }
+
+  &__mobIcon {
+    position: relative;
+    margin-top: 2.5rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 2.5rem;
+      height: 1px;
+      background-color: var(--color-primary);
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+    &::before {
+      top: -0.7rem;
+    }
+    &::after {
+      top: 0.7rem;
+    }
+
+    &__active {
+      background-color: transparent;
+      &::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      &::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

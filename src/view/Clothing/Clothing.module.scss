@@ -1,0 +1,21 @@
+@import '../../templates/abstracts/mixins.scss';
+
+.clothing {
+  &__container {
+    margin: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include respond(tab-port) {
+      margin: 3rem 0;
+    }
+  }
+
+  &__item {
+    margin: 2rem;
+    max-width: 33rem;
+    list-style: none;
+    @include shadowBottom;
+  }
+}

@@ -1,0 +1,21 @@
+.header {
+  &__container {
+    height: 14rem;
+    position: relative;
+    padding: 1rem;
+
+    //  background-color: var(--color-secondary-light);
+
+    // @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    //   -webkit-clip-path: polygon(0 0, 50% 0, 35% 20rem, 0 10rem);
+    //   clip-path: polygon(0 0, 50% 0, 35% 20rem, 0 10rem);
+    //   height: 20rem;
+    // }
+  }
+  &__shape {
+    height: 14vh;
+  }
+  &__img {
+    height: 100%;
+  }
+}

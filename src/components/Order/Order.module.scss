@@ -1,0 +1,201 @@
+@import '../../templates/abstracts/mixins';
+@import '../../templates/base/animations';
+
+.order {
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 1rem 1.5rem;
+
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+
+    @include respond(phone) {
+      padding: 1rem 0;
+    }
+  }
+
+  &__column {
+    height: 90%;
+    padding: 0 1.5rem;
+
+    @include respond(phone) {
+      height: fit-content;
+    }
+
+    &:not(:last-child) {
+      border-right: 2px dashed var(--color-secondary-light);
+      @include respond(tab-port) {
+        border-right: none;
+      }
+    }
+
+    &:last-child {
+      padding-left: 2.5rem;
+      @include respond(tab-port) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    &__c1 {
+      flex: 1 0 60%;
+
+      @include respond(tab-port) {
+        width: 90%;
+      }
+    }
+  }
+
+  &__details {
+    width: 100%;
+    height: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    @include respond(phone) {
+      height: fit-content;
+      overflow-y: visible;
+      padding: 1rem 0 3rem 0;
+    }
+  }
+
+  &__optionTitle {
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    color: var(--color-primary);
+    width: 50%;
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-primary);
+    transition: all 0.2s linear;
+
+    &:hover {
+      color: var(--color-primary-dark-1);
+      border-bottom: 1px solid var(--color-primary-dark-1);
+    }
+
+    @include respond(tab-port) {
+      width: 70%;
+    }
+
+    @include respond(phone) {
+      width: 90%;
+    }
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    fill: currentColor;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 1.5rem;
+    transition: color 0.5s;
+  }
+
+  &__optionDetails {
+    margin: 1.5rem auto;
+    padding: 1rem;
+    border: 1px solid var(--color-grey);
+    background-color: var(--color-grey-light);
+    border-radius: 3px;
+    width: 90%;
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+    transition: all 0.5s ease-out;
+
+    @include respond(phone) {
+      width: 100%;
+    }
+
+    &__hidden {
+      opacity: 0;
+      height: 0;
+      width: 90%;
+      transform: scaleY(0);
+      transition: all 0.1s ease-in;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &__productsList {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__li {
+    list-style: none;
+    padding: 0.5rem 1.5rem;
+
+    &:not(:last-child) {
+      border-bottom: 1px dashed var(--color-grey);
+    }
+  }
+
+  &__summary {
+    border-top: 1px solid var(--color-grey);
+    padding: 2rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+  }
+
+  &__h6 {
+    font-size: var(--default-font-size);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  &__h5 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-black);
+    float: right;
+    border-bottom: 2px dashed var(--color-tertiary);
+    margin-bottom: 1rem;
+  }
+
+  &__submitBtn {
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    color: var(--color-white);
+    background-color: var(--color-secondary);
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-primary-dark-1);
+    }
+
+    &__inactive {
+      background-color: var(--color-grey);
+      &:hover,
+      &:focus {
+        background-color: var(--color-grey);
+      }
+    }
+  }
+}
